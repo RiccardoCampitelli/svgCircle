@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { render } from "react-dom";
 import { SexyCircle } from "./Component";
 import styled from "styled-components";
-import './reset.css'
+import "./reset.css";
 
 const rootElement = document.getElementById("root");
 
@@ -100,6 +100,9 @@ const Component = () => {
         value={value}
       />
       <p>{value}</p>
+      <a href="https://github.com/RiccardoCampitelli/svgCircle" target="_blank">
+        Source code
+      </a>
     </Container>
   );
 };
