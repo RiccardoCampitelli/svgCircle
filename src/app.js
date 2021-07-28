@@ -14,6 +14,20 @@ const Input = styled.input`
   margin-top: 5rem;
 `;
 
+const A = styled.a`
+  text-decoration: none;
+  color: white;
+`;
+
+const Button = styled.button`
+  border: none;
+  padding: 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 2rem;
+  background-color: lightslategrey;
+`;
+
 const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -23,13 +37,17 @@ const Container = styled.div`
   flex-direction: column;
   padding-top: 5rem;
 
-  background-color: papayawhip;
+  color: white;
+
+  background: #0f0c29;
+  background: -webkit-linear-gradient(to right, #24243e, #302b63, #0f0c29);
+  background: linear-gradient(to right, #24243e, #302b63, #0f0c29);
 `;
 
 const pointsOnCircle = ({ radius, angle, center }) => {
   const radiusAngle = angle * (Math.PI / 180);
-  const x = center + radius * Math.sin(radiusAngle);
-  const y = center + radius * Math.cos(radiusAngle);
+  const y = center + radius * Math.sin(radiusAngle);
+  const x = center + radius * Math.cos(radiusAngle);
   return [x, y];
 };
 
@@ -50,8 +68,10 @@ const SolidColor = () => {
 /**
  * Example of a fancy gradient
  */
-const SvgGradient = ({ center, progress, angle, radius }) => {
-  const [x, y] = pointsOnCircle(center, angle, radius);
+const SvgGradient = ({ center, angle, radius }) => {
+  const [x, y] = pointsOnCircle({ center, angle, radius });
+
+  console.log({ center, angle, radius });
 
   return (
     <>
@@ -74,7 +94,7 @@ const SvgGradient = ({ center, progress, angle, radius }) => {
 
 const SvgFilter = ({ progress }) => (
   <filter id="Filter">
-    <feGaussianBlur stdDeviation={2 * progress} />
+    <feGaussianBlur stdDeviation={4 * progress} />
   </filter>
 );
 const Component = () => {
@@ -100,9 +120,14 @@ const Component = () => {
         value={value}
       />
       <p>{value}</p>
-      <a href="https://github.com/RiccardoCampitelli/svgCircle" target="_blank">
-        Source code
-      </a>
+      <Button>
+        <A
+          href="https://github.com/RiccardoCampitelli/svgCircle"
+          target="_blank"
+        >
+          Source code 💻
+        </A>
+      </Button>
     </Container>
   );
 };

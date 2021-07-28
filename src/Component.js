@@ -55,7 +55,7 @@ const SexyCircle = ({
   svgGradient: SvgGradient,
   svgFilter: SvgFilter,
 }) => {
-  const angle = (progress - barWidth / 2) * TOTAL;
+  const angle = progress * TOTAL;
 
   const sizeWithWidth = size + barWidth;
 
