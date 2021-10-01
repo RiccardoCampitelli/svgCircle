@@ -62,7 +62,7 @@ const SexyCircle = ({
   const radiusPlusWidth = sizeWithWidth / 2;
 
   const radius = size / 2;
-
+ 
   return (
     <>
       <DuoContainer size={size}>
